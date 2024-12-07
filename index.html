@@ -1,1 +1,84 @@
-<h1>Floupi</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Floupi - Ceramic Art Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Parisienne', cursive;
+      font-size: 32px;
+      margin-right: 20px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .gallery-item {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .gallery-item img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo">Floupi</div>
+  </header>
+  <div class="gallery" id="gallery"></div>
+
+  <script>
+    // Function to load images from the 'images' folder
+    function loadImages() {
+      const gallery = document.getElementById('gallery');
+      fetch('/images/')
+        .then(response => response.text())
+        .then(data => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(data, 'text/html');
+          const images = doc.getElementsByTagName('a');
+          for (let i = 0; i < images.length; i++) {
+            const imageUrl = images[i].getAttribute('href');
+            if (imageUrl.endsWith('.jpg') || imageUrl.endsWith('.png')) {
+              const imageElement = document.createElement('div');
+              imageElement.classList.add('gallery-item');
+              const img = document.createElement('img');
+              img.src = '/images/' + imageUrl;
+              img.alt = imageUrl;
+              imageElement.appendChild(img);
+              const caption = document.createElement('p');
+              caption.textContent = imageUrl;
+              imageElement.appendChild(caption);
+              gallery.appendChild(imageElement);
+            }
+          }
+        })
+        .catch(error => console.error('Error loading images:', error));
+    }
+
+    // Load images when the page is loaded
+    window.addEventListener('load', loadImages);
+  </script>
+</body>
+</html>

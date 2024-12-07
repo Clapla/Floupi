@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CV - Florence Paradis Leduc</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="menu-placeholder"></div>
+  <div class="content">
+    <div class="cv-section">
+      <h3>Education</h3>
+      <p>2020-2023 MFA in Ceramics, Example University<br>
+      2016-2020 BFA in Studio Art, Another University</p>
+    </div>
+
+    <div class="cv-section">
+      <h3>Solo Exhibitions</h3>
+      <p>2024 "Hydrophyte", Gallery Name, Montreal<br>
+      2023 "Organic Forms", Another Gallery, Toronto</p>
+    </div>
+
+    <div class="cv-section">
+      <h3>Group Exhibitions</h3>
+      <p>2024 "Contemporary Ceramics", Gallery Name, Montreal<br>
+      2023 "New Voices in Clay", Another Space, Vancouver</p>
+    </div>
+
+    <div class="cv-section">
+      <h3>Awards & Residencies</h3>
+      <p>2024 Artist Residency, Studio Name, Montreal<br>
+      2023 Young Artist Grant, Arts Council</p>
+    </div>
+  </div>
+
+  <script>
+    fetch('menu.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('menu-placeholder').innerHTML = data;
+      });
+  </script>
+</body>
+</html>

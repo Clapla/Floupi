@@ -1,0 +1,32 @@
+{
+  "test1.jpg": {
+    "title": "Trimming the Base",
+    "medium": "Ceramics Process Documentation",
+    "description": "Studio lighting captures the precise moment of trimming excess clay from a vessel's base",
+    "year": "2024"
+  },
+  "test2.jpg": {
+    "title": "Initial Centering",
+    "medium": "Ceramics Process Documentation",
+    "description": "Hands working to center clay on the potter's wheel, early stage of vessel formation",
+    "year": "2024"
+  },
+  "test3.jpg": {
+    "title": "Opening the Form",
+    "medium": "Ceramics Process Documentation",
+    "description": "Creating the initial opening in centered clay, beginning the hollow form",
+    "year": "2024"
+  },
+  "test4.jpg": {
+    "title": "Pulling the Walls",
+    "medium": "Ceramics Process Documentation",
+    "description": "Drawing up the vessel walls from the base, defining the form's height",
+    "year": "2024"
+  },
+  "test5.jpg": {
+    "title": "Shaping the Rim",
+    "medium": "Ceramics Process Documentation",
+    "description": "Final refinement of the vessel's rim on the wheel",
+    "year": "2024"
+  }
+}

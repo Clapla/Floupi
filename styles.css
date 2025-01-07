@@ -1,47 +1,45 @@
-
-
 body {
   margin: 0;
   padding: 0;
   display: flex;
   min-height: 100vh;
-}
-
-.sidebar {
+ }
+ 
+ .sidebar {
   width: 200px;
   padding: 120px 20px 20px;
   position: fixed;
   height: 100vh;
   background: white;
-}
-
-#menu-placeholder {
+ }
+ 
+ #menu-placeholder {
   font-family: 'Matrix II OT', serif;
-}
-
-#menu-placeholder a {
+ }
+ 
+ #menu-placeholder a {
   display: block;
   color: black;
   text-decoration: none;
   margin: 15px 0;
-  font-size: 20px; /* Increased menu text size */
-}
-
-#menu-placeholder a:hover {
+  font-size: 20px;
+ }
+ 
+ #menu-placeholder a:hover {
   text-decoration: underline;
-}
-
-.logo-container {
+ }
+ 
+ .logo-container {
   position: fixed;
   top: 20px;
   left: 20px;
   width: 300px;
   height: 150px;
   z-index: 100;
-  cursor: pointer; /* Shows that logo is clickable */
-}
-
-.logo {
+  cursor: pointer;
+ }
+ 
+ .logo {
   position: absolute;
   top: 0;
   left: 0;
@@ -50,41 +48,56 @@ body {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   object-fit: contain;
-}
-
-.logo.active {
+ }
+ 
+ .logo.active {
   opacity: 1;
-}
-
-.main-content {
-  margin-left: 240px;
-  padding: 20px;
-  width: calc(100% - 240px);
-}
-
-.gallery {
+ }
+ 
+ .main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 120px 20px 20px;
+  margin-left: 200px;
+ }
+ 
+ .content {
+  max-width: 600px;
+  width: 100%;
+  line-height: 1.6;
+  font-family: 'Matrix II OT', serif;
+  font-size: 18px;
+  text-align: justify; 
+ }
+ 
+ .cv-section {
+  margin-bottom: 2rem;
+ }
+ 
+ .gallery {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  max-width: 600px; 
+  max-width: 600px;
   margin: 0 auto;
-}
-
-.gallery-item {
+ }
+ 
+ .gallery-item {
   display: flex;
   flex-direction: column;
-}
-
-.gallery-item img {
+ }
+ 
+ .gallery-item img {
   width: 100%;
   height: auto;
   margin-bottom: 15px;
-}
-
-.gallery-item p {
+ }
+ 
+ .gallery-item p {
   margin: 0;
   font-family: 'Matrix II OT', serif;
-  font-size: 18px; 
+  font-size: 18px;
   color: #333;
   line-height: 1.4;
-}
+ }

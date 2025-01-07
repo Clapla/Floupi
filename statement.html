@@ -5,19 +5,16 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="menu-placeholder"></div>
-  <div class="content">
-    <p>My practice investigates the intersection between organic forms and human intervention. Through ceramics, I explore themes of growth, decay, and transformation. Each piece emerges from a dialogue between material and process, where the inherent properties of clay inform the final form.</p>
-    
-    <p>Drawing inspiration from biological structures and natural phenomena, my work seeks to blur the line between the manufactured and the naturally occurring. The resulting pieces exist in a space between recognition and abstraction, inviting viewers to question their relationship with the natural world.</p>
+  <a href="/index.html" class="logo-container" id="logo-container"></a>
+  <div class="sidebar">
+    <div id="menu-placeholder"></div>
   </div>
-
-  <script>
-    fetch('menu.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('menu-placeholder').innerHTML = data;
-      });
-  </script>
+  <div class="main-content">
+    <div class="content">
+      <p>My practice investigates the intersection between organic forms and human intervention. Through ceramics, I explore themes of growth, decay, and transformation. Each piece emerges from a dialogue between material and process, where the inherent properties of clay inform the final form.</p>
+      <p>Drawing inspiration from biological structures and natural phenomena, my work seeks to blur the line between the manufactured and the naturally occurring. The resulting pieces exist in a space between recognition and abstraction, inviting viewers to question their relationship with the natural world.</p>
+    </div>
+  </div>
+  <script src="alternating_logo.js"></script>
 </body>
 </html>

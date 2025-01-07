@@ -5,58 +5,18 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="menu-placeholder"></div>
-  <div class="gallery" id="gallery"></div>
-
-  <script>
-    // Load menu
-    fetch('/menu.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('menu-placeholder').innerHTML = data;
-      });
-
-    // Load images and descriptions
-    async function loadImagesAndDescriptions() {
-      const gallery = document.getElementById('gallery');
-      
-      try {
-        const descriptionsResponse = await fetch('/image_description.json');
-        const descriptions = await descriptionsResponse.json();
-        
-        const imagesResponse = await fetch('/images/');
-        const data = await imagesResponse.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(data, 'text/html');
-        const images = doc.getElementsByTagName('a');
-        
-        for (let i = 0; i < images.length; i++) {
-          const imageUrl = images[i].getAttribute('href');
-          if (imageUrl.endsWith('.jpg') || imageUrl.endsWith('.png')) {
-            const imageElement = document.createElement('div');
-            imageElement.classList.add('gallery-item');
-            
-            const img = document.createElement('img');
-            img.src = '/images/' + imageUrl;
-            img.alt = imageUrl;
-            imageElement.appendChild(img);
-            
-            const description = descriptions[imageUrl];
-            if (description) {
-              const caption = document.createElement('p');
-              caption.textContent = `${description.title}, ${description.medium}, ${description.size}', ${description.year}.`;
-              imageElement.appendChild(caption);
-            }
-            
-            gallery.appendChild(imageElement);
-          }
-        }
-      } catch (error) {
-        console.error('Error loading images or descriptions:', error);
-      }
-    }
-
-    window.addEventListener('load', loadImagesAndDescriptions);
-  </script>
+  <a href="/index.html" class="logo-container" id="logo-container">
+    <!-- Logos will be inserted here dynamically -->
+  </a>
+  
+  <div class="sidebar">
+    <div id="menu-placeholder"></div>
+  </div>
+  
+  <div class="main-content">
+    <div class="gallery" id="gallery"></div>
+  </div>
+  <script src="alternating_logo.js"></script>
+  <script src="load_images_descriptions.js"></script>
 </body>
 </html>

@@ -2,28 +2,21 @@ async function loadImagesAndDescriptions() {
   const gallery = document.getElementById('gallery');
   
   try {
-    const descriptionsResponse = await fetch('image_description.json');
+    const descriptionsResponse = await fetch('/assets/image_description.json');
     const descriptions = await descriptionsResponse.json();
     
-    const imagesResponse = await fetch('/images/');
-    const data = await imagesResponse.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(data, 'text/html');
-    // Only get links that point to actual image files
-    const images = Array.from(doc.getElementsByTagName('a')).filter(link => 
-      link.getAttribute('href').match(/\.(jpg|jpeg|png|gif)$/i)
-    );
+    // Define image files directly instead of parsing directory
+    const imageFiles = ['test1.jpg', 'test2.jpg', 'test3.jpg', 'test4.jpg', 'test5.jpg'];
     
-    for (const image of images) {
-      const imageUrl = image.getAttribute('href');
-      const filename = imageUrl.split('/').pop();
+    for (const filename of imageFiles) {
+      const imageUrl = `/assets/images/${filename}`;
       
       const imageElement = document.createElement('div');
       imageElement.classList.add('gallery-item');
       
       const img = document.createElement('img');
       img.src = imageUrl;
-      img.alt = imageUrl;
+      img.alt = descriptions[filename]?.title || filename;
       imageElement.appendChild(img);
       
       const description = descriptions[filename];
